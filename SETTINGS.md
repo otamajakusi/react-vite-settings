@@ -64,23 +64,6 @@ Parsing error: ESLint was configured to run on `<tsconfigRootDir>/.eslintrc.cjs`
          "react"
 ```
 
-
-diff --git a/.eslintrc.cjs b/.eslintrc.cjs
-index de27355..13ef78c 100644
---- a/.eslintrc.cjs
-+++ b/.eslintrc.cjs
-@@ -21,8 +21,7 @@ module.exports = {
-         }
-     ],
-     "parserOptions": {
--        "ecmaVersion": "latest",
--        "sourceType": "module"
-+        "project":  ['./tsconfig.json', './tsconfig.node.json']
-     },
-     "plugins": [
-         "react"
-
-
 ```diff
 --- a/tsconfig.node.json
 +++ b/tsconfig.node.json
@@ -137,6 +120,36 @@ This rule requires the `strictNullChecks` compiler option to be turned on to fun
  }
 ```
 
+## eslint-plugin-simple-import-sort
+
+```
+npm i --save-dev eslint-plugin-simple-import-sort
+```
+
+```diff
+--- a/.eslintrc.cjs
++++ b/.eslintrc.cjs
+@@ -25,10 +25,16 @@ module.exports = {
+         "project":  ['./tsconfig.json', './tsconfig.node.json']
+     },
+     "plugins": [
+-        "react"
++        "react",
++        "simple-import-sort"
+     ],
+     "rules": {
+         "react/jsx-uses-react": "off",
+-        "react/react-in-jsx-scope": "off"
++        "react/react-in-jsx-scope": "off",
++        "simple-import-sort/imports": "error",
++        "simple-import-sort/exports": "error",
++        "import/first": "error",
++        "import/newline-after-import": "error",
++        "import/no-duplicates": "error"
+     }
+ }
+```
+
 
 ## vscode
 
@@ -157,3 +170,7 @@ This rule requires the `strictNullChecks` compiler option to be turned on to fun
   }
 }
 ```
+
+## resolve eslint and prettier settings
+
+
