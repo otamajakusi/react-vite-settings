@@ -173,4 +173,28 @@ npm i --save-dev eslint-plugin-simple-import-sort
 
 ## resolve eslint and prettier settings
 
+.prettierrc
 
+```json
+{
+  "semi": false,
+  "jsxSingleQuote": true,
+  "singleQuote": true,
+  "trailingComma": "none"
+}
+```
+
+.eslintrc.cjs
+
+```
+--- a/.eslintrc.cjs
++++ b/.eslintrc.cjs
+@@ -20,6 +20,7 @@ module.exports = {
+   },
+   plugins: ['react', 'simple-import-sort'],
+   rules: {
++    'comma-dangle': ['error', 'never'],
+     'react/jsx-uses-react': 'off',
+     'react/react-in-jsx-scope': 'off',
+     'simple-import-sort/imports': 'error',
+```

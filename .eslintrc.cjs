@@ -20,6 +20,7 @@ module.exports = {
   },
   plugins: ['react', 'simple-import-sort'],
   rules: {
+    'comma-dangle': ['error', 'never'],
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'simple-import-sort/imports': 'error',
